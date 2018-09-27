@@ -1,0 +1,27 @@
+<launch>
+
+  <param name="/use_sim_time" value="true" />
+
+  <param name="/odom_in_tf"  value="true" />
+
+  <!-- the value of this parameter is the name of topic for our laser -->
+  <param name="/scan"  value="scan" />
+
+  <!-- the value parameters for laser transform -->
+  <param name="/x_tf"  value="0.55" />
+  <param name="/yaw_tf"  value="0.005" />
+  <param name="/frame_id"  value="base_link" />
+  <param name="/child_id"  value="velodyne" />
+
+  <node pkg="virtual_imu" type="virtual_imu" name="virtual_imu" />
+
+  <node pkg="ackermann_to_odom" type="ackermann_to_odom" name="ackermann_to_odom" />
+
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" />
+ 
+  <!-- place the path of your bag file -->
+  <node pkg="rosbag" type="play" name="rosbagplay" args="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-06-21\ experimentos/2018-06-21_1.bag --clock -d 5" required="true"/>
+
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/gmapping.rviz" />
+
+</launch>
