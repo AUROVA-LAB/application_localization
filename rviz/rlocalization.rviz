@@ -101,9 +101,9 @@ Visualization Manager:
       Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
-      Max Intensity: 86
+      Max Intensity: 100
       Min Color: 0; 0; 0
-      Min Intensity: 1
+      Min Intensity: 3
       Name: LaserScan
       Position Transformer: XYZ
       Queue Size: 0
@@ -204,7 +204,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 12.411191
+      Distance: 12.1663752
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -219,10 +219,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.529797494
+      Pitch: 0.454797566
       Target Frame: base_link
       Value: Orbit (rviz)
-      Yaw: 1.08993661
+      Yaw: 0.799936891
     Saved: ~
 Window Geometry:
   Displays:

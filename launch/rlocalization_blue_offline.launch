@@ -5,7 +5,7 @@
   <arg name="bag_file_1" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-07-06\ Reactivo\ hokuyo/2018-07-06-13-03-40_filt.bag"/>
   <arg name="bag_file_2" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-06-21\ Experimentos\ JIRS/2018-06-21_1_filt.bag"/>
 
-  <rosparam command="load" file="$(find application_localization)/params/robot_localization_rosbag.yaml" />
+  <rosparam command="load" file="$(find application_localization)/params/rlocalization_blue_offline.yaml" />
   
   <!-- select your robot -->
   <include file="$(find robot_blue)/launch/start_tf.launch" />
@@ -14,6 +14,6 @@
   <include file="$(find robot_localization)/launch/start_robot_localization.launch" />
 
   <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_2) --clock -d 5" required="true" />
-  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/robot_localization.rviz" />
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/rlocalization.rviz" />
 
 </launch>
