@@ -1,66 +1,32 @@
+<?xml version="1.0"?>
 <launch>
-
-  <param name="/use_sim_time" value="true" />
-
-  <param name="/odom_in_tf"  value="true" />
   
-  <!-- the value parameters for laser transform -->
-  <param name="/x_tf"  value="0.55" />
-  <param name="/yaw_tf"  value="0.005" />
-  <param name="/frame_id"  value="base_link" />
-  <param name="/child_id"  value="velodyne" />
+  <!-- select your bag file -->
+  <arg name="bag_file_1" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-07-06\ Reactivo\ hokuyo/2018-07-06-13-03-40_filt.bag"/>
+  <arg name="bag_file_2" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-06-21\ Experimentos\ JIRS/2018-06-21_1_filt.bag"/>
+  <arg name="bag_file_3" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-10-02\ Indoor\ IUII/2018-10-02-12-56-14_filt.bag"/>
   
+  <!-- select your map file -->
+  <arg name="map_file_1" default="indoor_01"/>
+  <arg name="map_file_2" default="experiments_jirs_01"/>
+  
+  <rosparam command="load" file="$(find application_localization)/params/amcl_localization_rosbag.yaml" />
+  
+  <!-- select your robot -->
+  <include file="$(find robot_blue)/launch/start_tf.launch" />
   <include file="$(find ackermann_to_odom)/launch/start_odometry.launch" />
   
   <!-- the value of parameter scan is the name of topic for our laser -->
-  <node name="amcl" pkg="amcl" type="amcl" args="scan:=scan" output="screen">
-    
-    <param name="use_map_topic" value="true" />
-    <param name="first_map_only" value="true" />
-    
-    <!-- Publish scans from best pose at a max of 10 Hz -->
-    <param name="odom_model_type" value="diff-corrected"/>
-    <param name="odom_alpha5" value="0.1"/>
-    <param name="transform_tolerance" value="0.2" />
-    <param name="gui_publish_rate" value="10.0"/>
-    <param name="laser_max_beams" value="30"/>
-    <param name="min_particles" value="500"/>
-    <param name="max_particles" value="5000"/>
-    <param name="kld_err" value="0.05"/>
-    <param name="kld_z" value="0.99"/>
-    <!-- translation std dev, m -->
-    <param name="odom_alpha1" value="1.0"/>
-    <param name="odom_alpha2" value="0.01"/>   
-    <param name="odom_alpha3" value="1.0"/>
-    <param name="odom_alpha4" value="0.01"/>
-    <param name="laser_z_hit" value="0.5"/>
-    <param name="laser_z_short" value="0.05"/>
-    <param name="laser_z_max" value="0.05"/>
-    <param name="laser_z_rand" value="0.5"/>
-    <param name="laser_sigma_hit" value="0.2"/>
-    <param name="laser_lambda_short" value="0.1"/>
-    <param name="laser_model_type" value="likelihood_field"/>
-    <!-- <param name="laser_model_type" value="beam"/> -->
-    <param name="laser_likelihood_max_dist" value="2.0"/>
-    <param name="update_min_d" value="0.2"/>
-    <param name="update_min_a" value="0.5"/>
-    <param name="odom_frame_id" value="odom"/>
-    <param name="resample_interval" value="2"/>
-    <param name="transform_tolerance" value="0.1"/>
-    <param name="recovery_alpha_slow" value="0.0"/>
-    <param name="recovery_alpha_fast" value="0.0"/>
-
+  <node name="amcl" pkg="amcl" type="amcl" args="scan:=scan" output="screen" >
+    <!-- select your robot -->
+    <rosparam command="load" file="$(find robot_blue)/params/amcl_params.yaml" />
   </node>
   
-  <!-- place the path of your bag file -->
-  <!-- 2018-07-06\ Reactivo\ hokuyo/2018-07-06-13-03-40_filt.bag -->
-  <!-- 2018-06-21\ Experimentos\ JIRS/2018-06-21_1_filt.bag -->
-  <!-- 2018-10-02\ Indoor\ IUII/2018-10-02-12-56-14_filt.bag -->
-  <node pkg="rosbag" type="play" name="rosbagplay" args="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-07-06\ Reactivo\ hokuyo/2018-07-06-13-03-40_filt.bag --clock -d 5" required="true"/>
 
-  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/gmapping.rviz" />
+  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_1) --clock -d 5" required="true" />
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/amcl_localization.rviz" />
    
   <!-- you need to load the map using map_server node -->
-  <node pkg="map_server" type="map_server" name="map_server" args="$(find application_localization)/maps/experiments_jirs_01.yaml"/>
+  <node pkg="map_server" type="map_server" name="map_server" args="$(find application_localization)/maps/$(arg map_file_2).yaml"/>
   
 </launch>
