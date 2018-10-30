@@ -13,7 +13,7 @@
   <rosparam command="load" file="$(find application_localization)/params/amcl_blue_offline.yaml" />
   
   <!-- select your robot -->
-  <include file="$(find robot_blue)/launch/start_tf.launch" />
+  <include file="$(find robot_blue)/launch/components/start_tf.launch" />
   <include file="$(find ackermann_to_odom)/launch/start_odometry.launch" />
   
   <!-- the value of parameter scan is the name of topic for our laser -->
