@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <!-- select your map file -->
+  <arg name="map_file_1" default="indoor_01"/>
+  <arg name="map_file_2" default="experiments_jirs_01"/>
+  <arg name="map_file_3" default="outdoor_iuii"/>
+  
+  <rosparam command="load" file="$(find application_localization)/params/amcl_blue_online.yaml" />
+  
+  <!-- select your robot -->
+  <include file="$(find robot_blue)/launch/start_indoor_nodes.launch" />
+  <include file="$(find velocity_recommender)/launch/start_all_reactives.launch" />
+  <include file="$(find ackermann_to_odom)/launch/start_odometry.launch" />
+  
+  <!-- the value of parameter scan is the name of topic for our laser -->
+  <node name="amcl" pkg="amcl" type="amcl" args="scan:=scan" output="screen" >
+    <!-- select your robot -->
+    <rosparam command="load" file="$(find robot_blue)/params/amcl_params.yaml" />
+  </node>
+  
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/amcl.rviz" />
+   
+  <!-- you need to load the map using map_server node -->
+  <node pkg="map_server" type="map_server" name="map_server" args="$(find application_localization)/maps/$(arg map_file_1).yaml"/>
+  
+</launch>
