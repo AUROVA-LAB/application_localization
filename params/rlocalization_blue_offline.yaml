@@ -4,6 +4,6 @@ use_sim_time: true
 
 #-variables for ackermann_to_odom node
 odom_in_tf: true
-scan_in_tf: true
-frame_id: "base_link"
-child_id: "velodyne"
+scan_in_tf: false
+frame_id: ""
+child_id: ""

@@ -6,6 +6,8 @@
   <arg name="bag_file_2" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-06-21\ Experimentos\ JIRS/2018-06-21_1_filt.bag"/>
   <arg name="bag_file_3" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-10-02\ Indoor\ IUII/2018-10-02-12-56-14_filt.bag"/>
   <arg name="bag_file_4" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-11-09\ Outdoor\ IUII/2018-11-09-13-36-51.bag"/>
+  <arg name="bag_file_5" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-06-21\ Experimentos\ JIRS/2018-06-21_2.bag"/>
+  
   
   <rosparam command="load" file="$(find application_localization)/params/gmapping_blue_offline.yaml" />
   
@@ -15,7 +17,7 @@
   
   <!-- take into account the SCAN argument!! -->
   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" args="scan:=scan" output="screen"/>
-  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_4) --clock -d 5" required="true" />
+  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_5) --clock -d 5" required="true" />
   <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/gmapping.rviz" />
   
 </launch>
