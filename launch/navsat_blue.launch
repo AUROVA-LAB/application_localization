@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <node pkg="robot_localization" type="navsat_transform_node" name="navsat_transform" output="screen">
+    <remap from="odometry/filtered" to="amcl_pose"/>
+    <remap from="gps/fix" to="rover/fix"/>
+    <remap from="imu/data" to="virtual_imu_data"/>
+  </node>
+   
+</launch>
