@@ -166,8 +166,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 17.0251408
-        Min Value: -0.637796879
+        Max Value: 16.3113174
+        Min Value: -1.14677393
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -193,6 +193,36 @@ Visualization Manager:
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
+    - Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.100000001
+      Class: rviz/PoseWithCovariance
+      Color: 255; 25; 0
+      Covariance:
+        Orientation:
+          Alpha: 0.5
+          Color: 255; 255; 127
+          Color Style: Unique
+          Frame: Local
+          Offset: 1
+          Scale: 1
+          Value: true
+        Position:
+          Alpha: 0.300000012
+          Color: 204; 51; 204
+          Scale: 1
+          Value: true
+        Value: true
+      Enabled: true
+      Head Length: 0.600000024
+      Head Radius: 0.400000006
+      Name: PoseWithCovariance
+      Shaft Length: 2
+      Shaft Radius: 0.200000003
+      Shape: Arrow
+      Topic: /initialpose
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -217,7 +247,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 14.388382
+      Distance: 48.4034233
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -232,10 +262,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.574799061
+      Pitch: 1.10979867
       Target Frame: base_link
       Value: Orbit (rviz)
-      Yaw: 0.958824515
+      Yaw: 2.89882255
     Saved: ~
 Window Geometry:
   Displays:
