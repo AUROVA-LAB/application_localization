@@ -9,7 +9,7 @@
   <rosparam command="load" file="$(find application_localization)/params/amcl_blue_online.yaml" />
   
   <!-- select your robot -->
-  <include file="$(find robot_blue)/launch/start_indoor_nodes.launch" />
+  <include file="$(find robot_blue)/launch/start_all_nodes.launch" />
   <include file="$(find velocity_recommender)/launch/start_all_reactives.launch" />
   <include file="$(find ackermann_to_odom)/launch/start_odometry.launch" />
   
