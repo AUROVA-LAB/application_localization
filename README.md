@@ -1,6 +1,10 @@
 # application_localization
 This package contains an application consisting of different launch files that execute diferent localization algorithms using an specific robots and nodes for adapt sensor data. These applications can be launched using different robots (with AUROVA format) by slightly modifying the corresponding .launch file. Our launch files use the following ROS packages:
 
+**KF fusion [(link)](https://github.com/AUROVA-LAB/aurova_localization)** 
+
+With this package we can fuse information from different localization sources.
+
 **Gmapping slam [(link)](http://wiki.ros.org/gmapping)** 
 
 With this package we can generate a grid-based map of the enviroment and store it using a [map server](http://wiki.ros.org/map_server).
