@@ -6,3 +6,5 @@ This package contains an application consisting of different launch files that e
 * Step 1: run amcl_blue_online.launch. If you want to run offline, you can run amcl_blue_offline.launch, but you need to modify the file adding the path of your .bag file.
 * Step 2: localize the robot in the map using rviz functionality.
 
+![amcl_picture](/documentation/exec_arch.png)
+
