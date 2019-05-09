@@ -8,3 +8,5 @@ This package contains an application consisting of different launch files that e
 
 ![](/documentation/exec_arch.png)
 
+![](/documentation/exec_arch_gps.png)
+
