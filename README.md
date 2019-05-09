@@ -17,4 +17,4 @@ This package contains an application consisting of different launch files that e
 
 ![](/documentation/exec_arch_gps.png)
 
-To obtain grid maps you can execute gmapping_blue_offline.launch, in this case offline, and with the gmapping dependence in addition to that the first example dependences. You can use a different robot replicating the estructure of [BLUE robot](https://github.com/AUROVA-LAB/robot_blue) package and replacing the references to the BLUE package in these .launch files with those of the new package.
+To obtain grid maps you can execute gmapping_blue_offline.launch, in this case offline, and with the gmapping dependence in addition to that the first example dependences. You can use a different robot replicating the estructure of [BLUE robot](https://github.com/AUROVA-LAB/robot_blue) package and replacing the references to the BLUE package in these .launch files with those of the new package. The parameters specified in this package are the ones relative to the context to this application. The robot parameters are saved in the robot package.
