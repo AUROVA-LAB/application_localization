@@ -36,6 +36,10 @@
     <remap from="image" to="plot_out" />
     <param name="autosize" value="False" />
   </node>
+  <node name="edges_viewer" pkg="image_view" type="image_view">
+    <remap from="image" to="edges_out" />
+    <param name="autosize" value="False" />
+  </node>
   <!--
   <node name="matches_viewer" pkg="image_view" type="image_view">
     <remap from="image" to="matches_out" />
@@ -43,10 +47,6 @@
   </node>
   <node name="color_viewer" pkg="image_view" type="image_view">
     <remap from="image" to="color_out" />
-    <param name="autosize" value="False" />
-  </node>
-  <node name="depth_viewer" pkg="image_view" type="image_view">
-    <remap from="image" to="depth_out" />
     <param name="autosize" value="False" />
   </node>
   -->
