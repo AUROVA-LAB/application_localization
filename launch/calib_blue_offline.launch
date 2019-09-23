@@ -40,15 +40,9 @@
     <remap from="image" to="edges_out" />
     <param name="autosize" value="False" />
   </node>
-  <!--
-  <node name="matches_viewer" pkg="image_view" type="image_view">
-    <remap from="image" to="matches_out" />
+  <node name="sobel_viewer" pkg="image_view" type="image_view">
+    <remap from="image" to="sobel_out" />
     <param name="autosize" value="False" />
   </node>
-  <node name="color_viewer" pkg="image_view" type="image_view">
-    <remap from="image" to="color_out" />
-    <param name="autosize" value="False" />
-  </node>
-  -->
 
 </launch>
