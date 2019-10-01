@@ -10,6 +10,9 @@
   <arg name="bag_file_6" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-06-21\ Experimentos\ JIRS/2018-06-21_1.bag"/>
   <arg name="bag_file_7" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-12-05\ Sensors/2018-12-05_8.bag"/>
   <arg name="bag_file_8" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-02-11\ Demo\ poli/2019-02-11_2.bag"/>
+
+  <arg name="bag_file_9"  default="/home/idelpino/Documents/ROSBAGS_BLUE/Sensors/2018-12-05_1.bag"/>
+  <arg name="bag_file_10" default="/home/idelpino/Documents/ROSBAGS_BLUE/Experimentos_JIRS/2018-06-21_1.bag"/>
  
   <!-- select your map file -->
   <arg name="map_file_1" default="indoor_01"/>
@@ -30,10 +33,10 @@
   </node>
   
 
-  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_8) --clock -d 5" required="true" />
+  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_10) --clock -d 5" required="true" />
   <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/amcl.rviz" />
    
   <!-- you need to load the map using map_server node -->
-  <node pkg="map_server" type="map_server" name="map_server" args="$(find application_localization)/maps/$(arg map_file_4).yaml"/>
+  <node pkg="map_server" type="map_server" name="map_server" args="$(find application_localization)/maps/$(arg map_file_2).yaml"/>
   
 </launch>
