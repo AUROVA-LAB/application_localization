@@ -1,1 +1,5 @@
-
+<?xml version="1.0"?>
+<launch>    
+  <rosparam command="load" file="$(find application_localization)/params/dump_imu_data_for_calibration_with_imutk.yaml" />
+  <node name="dump_imu_data_for_calibration_with_imutk" pkg="dump_imu_data_for_calibration_with_imutk" type="dump_imu_data_for_calibration_with_imutk" output="screen"/>
+</launch>
