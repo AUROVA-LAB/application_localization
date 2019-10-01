@@ -1,1 +1,2 @@
-
+/dump_imu_data_for_calibration_with_imutk/accelerometer_output_file_path: "/home/idelpino/Documents/imu_acc.mat"
+/dump_imu_data_for_calibration_with_imutk/gyroscope_output_file_path: "/home/idelpino/Documents/imu_gyro.mat"
