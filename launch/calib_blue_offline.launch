@@ -12,7 +12,7 @@
   <arg name="bag_file_6" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-07-22\ cam-velo\ indoor\ 3/2019-07-22-10-43-30.bag"/>
   <arg name="bag_file_7" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-09-10\ cam-velo-odom\ indoor/2019-09-10-15-24-04.bag"/>
   <arg name="bag_file_8" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-09-25\ cam-velo-odom/2019-09-25-14-33-15.bag"/>
-  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_8) --clock" required="true" />
+  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_8) --clock -d 5" required="true" />
 
   <rosparam command="load" file="$(find application_localization)/params/calib_blue_offline.yaml" />
 
@@ -26,10 +26,11 @@
   <include file="$(find ackermann_to_odom)/launch/start_odometry.launch" />
   
   <!-- calibration node -->
+  <node name="online_calibration_keyboard" pkg="online_calibration_keyboard" type="online_calibration_keyboard" output="screen" />
+  <node name="online_calibration_tf" pkg="online_calibration_tf" type="online_calibration_tf" output="screen" />
   <node name="online_calibration" pkg="online_calibration" type="online_calibration" output="screen">
     <!-- TODO: get from parameter (previous change node code) -->
     <remap from="image" to="/camera/color/image_raw" /> 
-    <!-- <remap from="image" to="/camera/depth/image_rect_raw" /> -->
   </node>
 
   <!-- visualization of the results -->
