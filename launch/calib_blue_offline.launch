@@ -26,7 +26,7 @@
   <include file="$(find ackermann_to_odom)/launch/start_odometry.launch" />
   
   <!-- calibration node -->
-  <node name="online_calibration_keyboard" pkg="online_calibration_keyboard" type="online_calibration_keyboard" output="screen" />
+  <!-- <node name="online_calibration_keyboard" pkg="online_calibration_keyboard" type="online_calibration_keyboard" output="screen" /> -->
   <node name="online_calibration_tf" pkg="online_calibration_tf" type="online_calibration_tf" output="screen" />
   <node name="online_calibration" pkg="online_calibration" type="online_calibration" output="screen">
     <!-- TODO: get from parameter (previous change node code) -->
@@ -42,7 +42,6 @@
     <remap from="image" to="sobel_plt_out" />
     <param name="autosize" value="False" />
   </node>
-  <!--
   <node name="edges_viewer" pkg="image_view" type="image_view">
     <remap from="image" to="edges_out" />
     <param name="autosize" value="False" />
@@ -51,6 +50,5 @@
     <remap from="image" to="sobel_out" />
     <param name="autosize" value="False" />
   </node>
-  -->
 
 </launch>
