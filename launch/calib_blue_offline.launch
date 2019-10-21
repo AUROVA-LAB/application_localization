@@ -46,8 +46,8 @@
     <remap from="image" to="edges_out" />
     <param name="autosize" value="False" />
   </node>
-  <node name="sobel_viewer" pkg="image_view" type="image_view">
-    <remap from="image" to="sobel_out" />
+  <node name="discnt_viewer" pkg="image_view" type="image_view">
+    <remap from="image" to="discnt_out" />
     <param name="autosize" value="False" />
   </node>
 
