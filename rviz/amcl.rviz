@@ -4,6 +4,7 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /Global Options1
         - /Odometry1/Shape1
         - /PoseWithCovariance2/Covariance1
       Splitter Ratio: 0.53591162
@@ -28,6 +29,8 @@ Panels:
     Name: Time
     SyncMode: 0
     SyncSource: LaserScan
+Toolbars:
+  toolButtonStyle: 2
 Visualization Manager:
   Class: ""
   Displays:
@@ -56,6 +59,8 @@ Visualization Manager:
         All Enabled: true
         base_link:
           Value: true
+        camera_link_static:
+          Value: true
         gps:
           Value: true
         imu_link:
@@ -79,6 +84,8 @@ Visualization Manager:
         map:
           odom:
             base_link:
+              camera_link_static:
+                {}
               gps:
                 {}
               imu_link:
@@ -222,7 +229,7 @@ Visualization Manager:
       Shaft Length: 1
       Shaft Radius: 0.0500000007
       Shape: Arrow
-      Topic: /initialpose_plot
+      Topic: /pose_plot
       Unreliable: false
       Value: true
     - Alpha: 1
@@ -260,9 +267,7 @@ Visualization Manager:
       Marker Topic: /visualization
       Name: MarkerArray
       Namespaces:
-        goals: true
-        link: true
-        nodes: true
+        {}
       Queue Size: 100
       Value: true
     - Alpha: 1
@@ -279,6 +284,36 @@ Visualization Manager:
       Shape: Axes
       Topic: /move_base_simple/goal
       Unreliable: false
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 11.9969292
+        Min Value: -0.564693332
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: AxisColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 91
+      Min Color: 0; 0; 0
+      Min Intensity: 1
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 1
+      Size (m): 0.00999999978
+      Style: Points
+      Topic: /velodyne_points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
       Value: true
   Enabled: true
   Global Options:
@@ -304,7 +339,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 28.6352711
+      Distance: 13.4419355
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -319,10 +354,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.574797213
+      Pitch: 0.594797969
       Target Frame: base_link
       Value: Orbit (rviz)
-      Yaw: 0.746963143
+      Yaw: 0.988265038
     Saved: ~
 Window Geometry:
   Displays:
