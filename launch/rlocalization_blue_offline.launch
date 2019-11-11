@@ -6,6 +6,7 @@
   <arg name="bag_file_2" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-06-21\ Experimentos\ JIRS/2018-06-21_1_filt.bag"/>
   <arg name="bag_file_3" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-06-21\ Experimentos\ JIRS/2018-06-21_1.bag"/>
   <arg name="bag_file_4" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-07-06\ Reactivo\ hokuyo/2018-07-06-13-03-40.bag"/>
+  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_3) --clock -d 5" required="true" />
 
   <rosparam command="load" file="$(find application_localization)/params/rlocalization_blue_offline.yaml" />
   
@@ -13,9 +14,14 @@
   <include file="$(find robot_blue)/launch/components/start_tf.launch" />
   <include file="$(find ackermann_to_odom)/launch/start_odometry.launch" />
 
-  <include file="$(find robot_localization)/launch/start_robot_localization.launch" />
-
-  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_3) --clock -d 5" required="true" />
+  <!-- robot localization nodes -->
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se_map" clear_params="true" />
+  <node pkg="robot_localization" type="navsat_transform_node" name="navsat_transform" clear_params="true">
+    <remap from="gps/fix" to="rover/fix"/>
+    <remap from="imu/data" to="virtual_imu_data"/>
+  </node>
+  
+  <!-- representation node (rviz) -->
   <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/rlocalization.rviz" />
 
 </launch>

@@ -4,7 +4,7 @@
   <rosparam command="load" file="$(find application_localization)/params/navsat.yaml" />
   
   <node pkg="robot_localization" type="navsat_transform_node" name="navsat_transform" output="screen">
-    <remap from="odometry/filtered" to="amcl_pose"/>
+    <remap from="pose/filtered" to="amcl_pose"/>
     <remap from="gps/fix" to="rover/fix"/>
     <remap from="imu/data" to="virtual_imu_data"/>
     <remap from="odometry/gps" to="odometry_gps_fix"/>
