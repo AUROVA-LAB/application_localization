@@ -10,6 +10,7 @@
   <arg name="bag_file_6" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-06-21\ Experimentos\ JIRS/2018-06-21_1.bag"/>
   <arg name="bag_file_7" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-12-05\ Sensors/2018-12-05_8.bag"/>
   <arg name="bag_file_8" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-02-11\ Demo\ poli/2019-02-11_2.bag"/>
+  <arg name="bag_file_11" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-11-13\ cam-velo\ campus/2019-11-13-11-23-45.bag"/>
 
   <arg name="bag_file_9"  default="/home/idelpino/Documents/ROSBAGS_BLUE/Sensors/2018-12-05_1.bag"/>
   <arg name="bag_file_10" default="/home/idelpino/Documents/ROSBAGS_BLUE/Experimentos_JIRS/2018-06-21_1.bag"/>
@@ -19,8 +20,12 @@
   <arg name="map_file_2" default="experiments_jirs_01"/>
   <arg name="map_file_3" default="outdoor_iuii"/>
   <arg name="map_file_4" default="demo_poli_01"/>
+  <arg name="map_file_5" default="campus_20191113_01"/>
   
   <rosparam command="load" file="$(find application_localization)/params/amcl_blue_offline.yaml" />
+
+  <!-- node for decoding velodyne packages -->
+  <include file="$(find robot_blue)/launch/components/start_velodyne.launch" />
   
   <!-- select your robot -->
   <include file="$(find robot_blue)/launch/components/start_tf.launch" />
@@ -33,10 +38,10 @@
   </node>
   
 
-  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_6) --clock -d 5" required="true" />
+  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_11) --clock -d 5" required="true" />
   <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/amcl.rviz" />
    
   <!-- you need to load the map using map_server node -->
-  <node pkg="map_server" type="map_server" name="map_server" args="$(find application_localization)/maps/$(arg map_file_2).yaml"/>
+  <node pkg="map_server" type="map_server" name="map_server" args="$(find application_localization)/maps/$(arg map_file_5).yaml"/>
   
 </launch>

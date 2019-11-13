@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <launch>
 
-  <param name="/use_sim_time" value="True" /> <!-- TODO: get from parameter -->
-  
   <!-- select your bag file -->
   <arg name="bag_file_1" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-06-05\ cam-velo\ indoor/2019-06-05-12-05-53.bag"/>
   <arg name="bag_file_2" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-06-05\ cam-velo\ indoor\ 2/2019-06-05-14-02-20.bag"/>
@@ -12,7 +10,8 @@
   <arg name="bag_file_6" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-07-22\ cam-velo\ indoor\ 3/2019-07-22-10-43-30.bag"/>
   <arg name="bag_file_7" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-09-10\ cam-velo-odom\ indoor/2019-09-10-15-24-04.bag"/>
   <arg name="bag_file_8" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-09-25\ cam-velo-odom/2019-09-25-14-33-15.bag"/>
-  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_8) --clock -d 5" required="true" />
+  <arg name="bag_file_9" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-11-13\ cam-velo\ campus/2019-11-13-11-23-45.bag"/>
+  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_9) --clock -d 5" required="true" />
 
   <rosparam command="load" file="$(find application_localization)/params/calib_blue_offline.yaml" />
 
@@ -34,6 +33,7 @@
   </node>
 
   <!-- visualization of the results -->
+  <!--
   <node name="plot_viewer" pkg="image_view" type="image_view">
     <remap from="image" to="plot_out" />
     <param name="autosize" value="False" />
@@ -42,6 +42,7 @@
     <remap from="image" to="sobel_plt_out" />
     <param name="autosize" value="False" />
   </node>
+  -->
   <node name="sobel_viewer" pkg="image_view" type="image_view">
     <remap from="image" to="sobel_out" />
     <param name="autosize" value="False" />

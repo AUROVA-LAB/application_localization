@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<launch>
+
+  <rosparam command="load" file="$(find application_localization)/params/calib_blue_offline.yaml" />
+  
+  <!-- calibration node -->
+  <!-- <node name="online_calibration_keyboard" pkg="online_calibration_keyboard" type="online_calibration_keyboard" output="screen" /> -->
+  <node name="online_calibration_tf" pkg="online_calibration_tf" type="online_calibration_tf" output="screen" />
+  <node name="online_calibration" pkg="online_calibration" type="online_calibration" output="screen">
+    <!-- TODO: get from parameter (previous change node code) -->
+    <remap from="image" to="/camera/color/image_raw" /> 
+  </node>
+
+  <!-- visualization of the results -->
+  <!--
+  <node name="plot_viewer" pkg="image_view" type="image_view">
+    <remap from="image" to="plot_out" />
+    <param name="autosize" value="False" />
+  </node>
+  <node name="sobel_plt_viewer" pkg="image_view" type="image_view">
+    <remap from="image" to="sobel_plt_out" />
+    <param name="autosize" value="False" />
+  </node>
+  -->
+  <node name="sobel_viewer" pkg="image_view" type="image_view">
+    <remap from="image" to="sobel_out" />
+    <param name="autosize" value="False" />
+  </node>
+  <node name="discnt_viewer" pkg="image_view" type="image_view">
+    <remap from="image" to="discnt_out" />
+    <param name="autosize" value="False" />
+  </node>
+
+</launch>
