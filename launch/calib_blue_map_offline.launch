@@ -13,21 +13,22 @@
 
   <!-- visualization of the results -->
   <!--
-  <node name="plot_viewer" pkg="image_view" type="image_view">
-    <remap from="image" to="plot_out" />
-    <param name="autosize" value="False" />
-  </node>
+
   <node name="sobel_plt_viewer" pkg="image_view" type="image_view">
     <remap from="image" to="sobel_plt_out" />
     <param name="autosize" value="False" />
   </node>
-  -->
   <node name="sobel_viewer" pkg="image_view" type="image_view">
     <remap from="image" to="sobel_out" />
     <param name="autosize" value="False" />
   </node>
+  -->
   <node name="discnt_viewer" pkg="image_view" type="image_view">
     <remap from="image" to="discnt_out" />
+    <param name="autosize" value="False" />
+  </node>
+    <node name="plot_viewer" pkg="image_view" type="image_view">
+    <remap from="image" to="plot_out" />
     <param name="autosize" value="False" />
   </node>
 

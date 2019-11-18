@@ -3,7 +3,8 @@ Panels:
     Help Height: 78
     Name: Displays
     Property Tree Widget:
-      Expanded: ~
+      Expanded:
+        - /PointCloud21
       Splitter Ratio: 0.53591162
     Tree Height: 657
   - Class: rviz/Selection
@@ -26,6 +27,8 @@ Panels:
     Name: Time
     SyncMode: 0
     SyncSource: LaserScan
+Toolbars:
+  toolButtonStyle: 2
 Visualization Manager:
   Class: ""
   Displays:
@@ -54,11 +57,17 @@ Visualization Manager:
         All Enabled: true
         base_link:
           Value: true
+        camera_color_frame:
+          Value: true
+        camera_color_optical_frame:
+          Value: true
+        camera_link:
+          Value: true
+        camera_link_static:
+          Value: true
         gps:
           Value: true
         imu_link:
-          Value: true
-        laser:
           Value: true
         map:
           Value: true
@@ -75,11 +84,11 @@ Visualization Manager:
         map:
           odom:
             base_link:
+              camera_link_static:
+                {}
               gps:
                 {}
               imu_link:
-                {}
-              laser:
                 {}
               velodyne:
                 {}
@@ -159,6 +168,36 @@ Visualization Manager:
       Unreliable: false
       Use Timestamp: false
       Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 16.2691994
+        Min Value: -1.89004946
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: AxisColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 100
+      Min Color: 0; 0; 0
+      Min Intensity: 1
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 1
+      Size (m): 0.00999999978
+      Style: Points
+      Topic: /velodyne_points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -198,10 +237,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.59479773
+      Pitch: 0.419797897
       Target Frame: base_link
       Value: Orbit (rviz)
-      Yaw: 2.49383163
+      Yaw: 2.28882861
     Saved: ~
 Window Geometry:
   Displays:
