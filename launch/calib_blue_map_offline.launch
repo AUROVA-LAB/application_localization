@@ -12,12 +12,11 @@
   </node>
 
   <!-- visualization of the results -->
-  <!--
-
   <node name="sobel_plt_viewer" pkg="image_view" type="image_view">
     <remap from="image" to="sobel_plt_out" />
     <param name="autosize" value="False" />
   </node>
+  <!--
   <node name="sobel_viewer" pkg="image_view" type="image_view">
     <remap from="image" to="sobel_out" />
     <param name="autosize" value="False" />
