@@ -22,8 +22,12 @@
   <arg name="bag_file_112" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-11-13\ cam-velo\ campus/2019-11-13-12-14-55.bag"/>
   <arg name="bag_file_113" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-11-13\ cam-velo\ campus/2019-11-13-12-19-56.bag"/>
   <arg name="bag_file_114" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-11-13\ cam-velo\ campus/2019-11-13-12-25-03.bag"/>
+  <arg name="bag_file_202" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-12-09\ cam-velo\ iuii/2019-12-09-13-21-18.bag"/>
+  <arg name="bag_file_203" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-12-09\ cam-velo\ iuii/2019-12-09-13-25-13.bag"/>
+  <arg name="bag_file_204" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-12-09\ cam-velo\ iuii/2019-12-09-13-28-04.bag"/>
+  <arg name="bag_file_205" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2019-12-09\ cam-velo\ iuii/2019-12-09-13-29-51.bag"/>
 
-  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_101) --clock" required="true" />
+  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_205) --clock" required="true" />
   
   <rosparam command="load" file="$(find application_localization)/params/gmapping_blue_offline.yaml" />
 
