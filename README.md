@@ -2,7 +2,7 @@
 This package contains an application consisting of different launch files that execute diferent localization algorithms using [BLUE robot](https://github.com/AUROVA-LAB/robot_blue) and nodes for adapt sensor data. Next we describe two example of how to run two different localization applications. 
 
 ### AMCL based application:
-**Dependences:** [navigation_stack](https://github.com/ros-planning/navigation) (AMCL package and map server package), [robot_blue](https://github.com/AUROVA-LAB/robot_blue), [aurova_reactives](https://github.com/AUROVA-LAB/aurova_reactives), and [aurova_preprocessed](https://github.com/AUROVA-LAB/aurova_preprocessed).
+**Dependences:** [navigation_stack](https://github.com/ros-planning/navigation) (AMCL package and map server package), [ackermann messages](https://github.com/ros-drivers/ackermann_msgs), [robot_blue](https://github.com/AUROVA-LAB/robot_blue), [aurova_reactives](https://github.com/AUROVA-LAB/aurova_reactives), and [aurova_preprocessed](https://github.com/AUROVA-LAB/aurova_preprocessed).
 * Step 1: run amcl_blue_online.launch. If you want to run offline, you can run amcl_blue_offline.launch, but you need to modify the file adding the path of your .bag file.
 * Step 2: localize the robot in the map using rviz functionality.
 
