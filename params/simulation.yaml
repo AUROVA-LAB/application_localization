@@ -1,0 +1,12 @@
+
+
+#-variables for pose_simulation node
+pose_simulation: {
+  frame_id: "map",
+  child_id: "base_link",
+  init_x: 0.0,
+  init_y: 0.0,
+  init_w: 0.0
+}
+
+

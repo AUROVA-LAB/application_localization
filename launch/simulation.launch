@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <rosparam command="load" file="$(find application_localization)/params/simulation.yaml" />
+
+  <!-- select your robot -->
+  <include file="$(find robot_blue)/launch/components/start_tf.launch" />
+
+  <node name="pose_simulation" pkg="pose_simulation" type="pose_simulation" output="screen" />
+  
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/simulation.rviz" />
+  
+</launch>
