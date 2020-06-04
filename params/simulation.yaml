@@ -4,9 +4,15 @@
 pose_simulation: {
   frame_id: "map",
   child_id: "base_link",
+  d_vehicle: 1.08,
   init_x: 0.0,
   init_y: 0.0,
-  init_w: 0.0
+  init_z: 0.0,
+  init_w: 0.0,
+  var_x: 0.5,
+  var_y: 0.5,
+  var_z: 1000,
+  var_w: 0.01
 }
 
 
