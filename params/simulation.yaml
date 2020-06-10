@@ -9,8 +9,8 @@ pose_simulation: {
   init_y: 0.0,
   init_z: 0.0,
   init_w: 0.0,
-  var_x: 0.5,
-  var_y: 0.5,
+  var_x: 0.8,
+  var_y: 0.2,
   var_z: 1000,
   var_w: 0.01
 }
