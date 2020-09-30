@@ -2,17 +2,17 @@
 
 #-variables for pose_simulation node
 pose_simulation: {
-  frame_id: "map",
+  frame_id: "odom",
   child_id: "base_link",
-  d_vehicle: 1.08,
-  init_x: 0.0,
+  d_vehicle: 1.05,
+  init_x: 30.0,
   init_y: 0.0,
   init_z: 0.0,
   init_w: 0.0,
-  var_x: 0.8,
-  var_y: 0.2,
-  var_z: 1000,
-  var_w: 0.01
+  var_x: 0.2,
+  var_y: 0.01,
+  var_z: 0.01,
+  var_w: 0.1
 }
 
 
