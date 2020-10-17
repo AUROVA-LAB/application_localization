@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <launch>
 
+  <rosparam command="load" file="$(find application_localization)/params/gazebo_blue.yaml" />
+
   <!-- select your robot -->
   <include file="$(find blue_gazebo)/launch/blue.launch" />
   
