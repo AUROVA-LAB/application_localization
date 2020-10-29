@@ -1,0 +1,16 @@
+
+#-variables for gps_to_odom node
+gps_to_odom: {
+  frame_id: "map",
+  max_speed: 1.3
+}
+
+#-variables for ekf_fusion node
+ekf_fusion: {
+  frame_id: "map",
+  child_id: "odom",
+  x_model: 0.05,
+  y_model: 0.05,
+  theta_model: 0.01,
+  outlier_mahalanobis: 5.0
+}
