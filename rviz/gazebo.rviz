@@ -57,19 +57,31 @@ Visualization Manager:
         All Enabled: true
         base_link:
           Value: true
-        front_left_wheel_link:
+        chassis:
           Value: true
-        front_right_wheel_link:
+        left_front_axle_carrier:
           Value: true
-        lidar_bar_link:
+        left_front_wheel:
+          Value: true
+        left_rear_axle_carrier:
+          Value: true
+        left_rear_wheel:
+          Value: true
+        left_steering_link:
           Value: true
         map:
           Value: true
         odom:
           Value: true
-        rear_left_wheel_link:
+        right_front_axle_carrier:
           Value: true
-        rear_right_wheel_link:
+        right_front_wheel:
+          Value: true
+        right_rear_axle_carrier:
+          Value: true
+        right_rear_wheel:
+          Value: true
+        right_steering_link:
           Value: true
         utm:
           Value: true
@@ -87,16 +99,21 @@ Visualization Manager:
           map:
             odom:
               base_link:
-                front_left_wheel_link:
-                  {}
-                front_right_wheel_link:
-                  {}
-                lidar_bar_link:
-                  {}
-                rear_left_wheel_link:
-                  {}
-                rear_right_wheel_link:
-                  {}
+                chassis:
+                  left_rear_axle_carrier:
+                    left_rear_wheel:
+                      {}
+                  left_steering_link:
+                    left_front_axle_carrier:
+                      left_front_wheel:
+                        {}
+                  right_rear_axle_carrier:
+                    right_rear_wheel:
+                      {}
+                  right_steering_link:
+                    right_front_axle_carrier:
+                      right_front_wheel:
+                        {}
                 velodyne_base_link:
                   velodyne:
                     {}
@@ -117,31 +134,55 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        front_left_wheel_link:
+        chassis:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        front_right_wheel_link:
+        left_front_axle_carrier:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_front_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        lidar_bar_link:
+        left_rear_axle_carrier:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_rear_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        rear_left_wheel_link:
+        left_steering_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_front_axle_carrier:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_front_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        rear_right_wheel_link:
+        right_rear_axle_carrier:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_rear_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        right_steering_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         velodyne:
           Alpha: 1
           Show Axes: false
@@ -215,8 +256,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 11.1152945
-        Min Value: -0.00639164448
+        Max Value: 13.4187574
+        Min Value: -0.0193354487
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -261,7 +302,7 @@ Visualization Manager:
           Color: 204; 51; 204
           Scale: 1
           Value: true
-        Value: true
+        Value: false
       Enabled: true
       Head Length: 0.300000012
       Head Radius: 0.100000001
@@ -296,7 +337,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 35.6041107
+      Distance: 38.4229202
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -311,10 +352,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.510204315
+      Pitch: 0.51020503
       Target Frame: base_link
       Value: Orbit (rviz)
-      Yaw: 2.81278133
+      Yaw: 2.81779575
     Saved: ~
 Window Geometry:
   Displays:
