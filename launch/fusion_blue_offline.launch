@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+	<arg name="bag_file_1" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2018-06-21\ Experimentos\ JIRS/2018-06-21_1.bag"/>
+	
+	<rosparam command="load" file="$(find application_localization)/params/fusion_blue_offline.yaml" />
+	
+	<!-- select your robot -->
+  <include file="$(find robot_blue)/launch/components/start_tf.launch" />
+  <include file="$(find ackermann_to_odom)/launch/start_odometry.launch" />
+  
+  <node pkg="gps_to_odom" type="gps_to_odom" name="gps_to_odom" output="screen">
+    <remap from="fix" to="rover/fix" />
+  </node>
+  
+  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_1) --clock -d 5" required="true" />
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/fusion_blue.rviz" />
+	
+</launch>

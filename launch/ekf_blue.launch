@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <launch>
 
-  <node pkg="ekf_fusion" type="ekf_fusion" name="ekf_fusion" output="screen" />
+  <node pkg="ekf_fusion" type="ekf_fusion" name="ekf_fusion" output="screen">
+    <remap from="odom" to="odometry" />
+  </node>
  
 </launch>
