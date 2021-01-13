@@ -2,6 +2,7 @@
 #-variables for gps_to_odom node
 gps_to_odom: {
   frame_id: "map",
+  min_speed: 0.6,
   max_speed: 1.3
 }
 
