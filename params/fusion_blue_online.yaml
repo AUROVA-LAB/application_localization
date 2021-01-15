@@ -16,8 +16,8 @@ gps_to_odom: {
 ekf_fusion: {
   frame_id: "map",
   child_id: "odom",
-  x_model: 0.05,
-  y_model: 0.05,
+  x_model: 0.5,
+  y_model: 0.5,
   theta_model: 0.01,
   outlier_mahalanobis: 5.0
 }
