@@ -5,7 +5,9 @@
   <arg name="bag_file_2" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2021-01-14\ iuii\ y\ patos/2021-01-14-11-29-41.bag"/>
   <arg name="bag_file_3" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2021-01-14\ iuii\ y\ patos/2021-01-14-11-50-14.bag"/>
   <arg name="bag_file_4" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2021-01-14\ iuii\ y\ patos/2021-01-14-11-59-46.bag"/>
-	
+  <arg name="bag_file_5" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2021-01-21\ parque\ cientifico/2021-01-21-11-06-56.bag"/>
+  <arg name="bag_file_6" default="/home/mice85/aurova-lab/labrobotica/local/Datasets/AUROVA/2021-01-21\ parque\ cientifico/2021-01-21-11-21-03.bag"/>
+  
   <rosparam command="load" file="$(find application_localization)/params/fusion_blue_offline.yaml" />
 	
 	<!-- select your robot -->
@@ -19,7 +21,7 @@
     <remap from="fix" to="rover/fix" />
   </node>
   
-  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_3) --clock -d 5" required="true" />
+  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_6) --clock -d 5" required="true" />
   <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/fusion_blue.rviz" />
 	
 </launch>
