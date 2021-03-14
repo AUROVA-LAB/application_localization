@@ -11,6 +11,10 @@
     <remap from="fix" to="rover/fix" />
   </node>
   
+  <node pkg="ekf_fusion" type="ekf_fusion" name="ekf_fusion" output="screen">
+    <remap from="odom" to="odometry" />
+  </node>
+  
   <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/fusion_blue.rviz" />
 	
 </launch>

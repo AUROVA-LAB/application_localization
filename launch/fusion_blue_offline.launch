@@ -27,7 +27,11 @@
     <remap from="fix" to="rover/fix" />
   </node>
   
-  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_9) --clock -d 5" required="true" />
+  <node pkg="ekf_fusion" type="ekf_fusion" name="ekf_fusion" output="screen">
+    <remap from="odom" to="odometry" />
+  </node>
+  
+  <node pkg="rosbag" type="play" name="rosbagplay" args="$(arg bag_file_8) --clock -d 5" required="true" />
   <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/fusion_blue.rviz" />
 	
 </launch>

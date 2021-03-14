@@ -21,7 +21,7 @@ ekf_fusion: {
   child_id: "odom",
   x_model: 0.5,
   y_model: 0.5,
-  theta_model: 0.01,
+  theta_model: 0.1,
   outlier_mahalanobis: 5.0,
-  min_speed: 0.4,
+  min_speed: 1.0,
 }
