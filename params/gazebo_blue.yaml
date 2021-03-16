@@ -14,5 +14,6 @@ ekf_fusion: {
   y_model: 0.05,
   theta_model: 0.01,
   outlier_mahalanobis: 5.0,
-  min_speed: 0.4
+  min_speed: 0.4,
+  is_simulation: true
 }
