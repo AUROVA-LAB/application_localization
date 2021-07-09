@@ -34,7 +34,7 @@ roslaunch application_localization blue_gazebo.launch
 - BLUE robot package: [robot_blue](https://github.com/AUROVA-LAB/robot_blue).
 - ROS packages: [aurova_preprocessed](https://github.com/AUROVA-LAB/aurova_preprocessed), [aurova_localization](https://github.com/AUROVA-LAB/aurova_localization), and [aurova_planning](https://github.com/AUROVA-LAB/aurova_planning). 
 - ROS application packages: [application_navigation](https://github.com/AUROVA-LAB/application_navigation), and [application_localization](https://github.com/AUROVA-LAB/application_localization).
-- Dataset example as rosbag file: [dataset link](https://drive.google.com/drive/folders/1JylIt_s6RiW5Y0EOHebXSuj3hUjQmQpG?usp=sharing).
+- Dataset example as rosbag file: [dataset link](https://drive.google.com/file/d/1JzL42ya_tXvQ8agNIiKDFAPPRJ8M2ZsH/view?usp=sharing).
 
 ### Usage instructions:
 
