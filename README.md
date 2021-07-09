@@ -1,22 +1,33 @@
 # application_localization
-This package contains an application consisting of different launch files that execute diferent localization algorithms using [BLUE robot](https://github.com/AUROVA-LAB/robot_blue) and nodes for adapt sensor data. Next we describe two example of how to run two different localization applications. 
+This package contains an application consisting of different launch files that execute diferent localization algorithms using [BLUE robot](https://github.com/AUROVA-LAB/robot_blue) and nodes for adapt sensor data. Next we describe two example of how to run two different complete applications. 
 
-### AMCL based application:
+## Navigation application using Gazebo model of BLUE.
+
+### Requirements to use this package:
+
+- System requirements: Ubuntu 16.04 and ROS Kinetic.
+- Libraries: [lib_planning](https://github.com/AUROVA-LAB/lib_planning), Eigen, and PCL.
+- BLUE model for Gazebo: Follow instruction in [robot_blue_gazebo](https://github.com/AUROVA-LAB/robot_blue_gazebo).
+- ROS packages: [aurova_preprocessed](https://github.com/AUROVA-LAB/aurova_preprocessed), [aurova_localization](https://github.com/AUROVA-LAB/aurova_localization), and [aurova_planning](https://github.com/AUROVA-LAB/aurova_planning). 
+- ROS application packages: [application_navigation](https://github.com/AUROVA-LAB/application_navigation), and [application_localization](https://github.com/AUROVA-LAB/application_localization).
+
+### Usage instructions:
+
+- Step 0: You should change the parameter ~global_planning/url_path in "application_navigation/blue/gazebo.yaml" file, to indicate your local PC path. 
+
+- Step 1: To run the local and global path planning, and the utm->map /tf, run following command:
+```shell
+roslaunch application_navigation blue_gazebo.launch
+```
+
+- Step 2: To run the complete localization system, run the following command:
+```shell
+roslaunch application_localization blue_gazebo.launch
+```
+
+- Step 3: After that, to start the autonomous navigation, you should send a goal usin rviz button "2D Nav Goal" and the mouse.
+
+![](/documentation/approach.png)
+
 **Dataset for example in offline mode:** [dataset link](https://drive.google.com/drive/folders/1JylIt_s6RiW5Y0EOHebXSuj3hUjQmQpG?usp=sharing).
 
-**Dependences:** [navigation_stack](https://github.com/ros-planning/navigation) (AMCL package and map server package), [ackermann messages](https://github.com/ros-drivers/ackermann_msgs), [robot_blue](https://github.com/AUROVA-LAB/robot_blue), [aurova_reactives](https://github.com/AUROVA-LAB/aurova_reactives), and [aurova_preprocessed](https://github.com/AUROVA-LAB/aurova_preprocessed).
-* Step 1: run amcl_blue_online.launch. If you want to run offline, you can run amcl_blue_offline.launch, but you need to modify the file adding the path of your .bag file.
-* Step 2: localize the robot in the map using rviz functionality.
-
-![](/documentation/exec_arch.png)
-
-### GNSS-AMCL fusion based application:
-**Dependences:** [navigation_stack](https://github.com/ros-planning/navigation) (AMCL package and map server package), [ackermann messages](https://github.com/ros-drivers/ackermann_msgs), [robot_blue](https://github.com/AUROVA-LAB/robot_blue), [aurova_reactives](https://github.com/AUROVA-LAB/aurova_reactives), [aurova_preprocessed](https://github.com/AUROVA-LAB/aurova_preprocessed), [aurova_localization](https://github.com/AUROVA-LAB/aurova_localization), and [robot_localization](https://github.com/AUROVA/robot_localization) (AUROVA fork!!).
-* Step 1: run amcl_blue_online.launch. If you want to run offline, you can run amcl_blue_offline.launch, but you need to modify the file adding the path of your .bag file.
-* Step 2: localize the robot in the map using rviz functionality.
-* Step 3: run navsat_blue.launch.
-* Step 4: run ekf_blue.launch.
-
-![](/documentation/exec_arch_gps.png)
-
-To obtain grid maps you can execute gmapping_blue_offline.launch, in this case offline, and with the gmapping dependence in addition to that the first example dependences. You can use a different robot replicating the estructure of [BLUE robot](https://github.com/AUROVA-LAB/robot_blue) package and replacing the references to the BLUE package in these .launch files with those of the new package. The parameters specified in this package are the ones relative to the context to this application. The robot parameters are saved in the robot package.
