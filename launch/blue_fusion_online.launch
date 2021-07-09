@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 	
-	<rosparam command="load" file="$(find application_localization)/params/fusion_blue_online.yaml" />
+	<rosparam command="load" file="$(find application_localization)/params/blue_fusion_online.yaml" />
 	
 	<!-- select your robot -->
   <include file="$(find robot_blue)/launch/start_all_nodes.launch" />
@@ -15,6 +15,6 @@
     <remap from="odom" to="odometry" />
   </node>
   
-  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/fusion_blue.rviz" />
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find application_localization)/rviz/blue_fusion.rviz" />
 	
 </launch>
