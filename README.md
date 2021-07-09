@@ -52,7 +52,7 @@ roslaunch application_navigation blue_online.launch
 roslaunch application_localization blue_fusion_offline.launch
 ```
 
-- Step 3: The vehicle is not localized since the velocity doesn't achieve a threshold yet. When the velocity reaches the threshold, the vehicle is localized, and you can see in rviz the lidar point cloud in grey.
+- Step 3: The vehicle is not localized since the velocity doesn't achieve a threshold yet. You should wait. When the velocity reaches the threshold, the vehicle is localized, and you can see in rviz the lidar point cloud in grey.
 
 - Step 4: After that, you should send a goal using the rviz button "2D Nav Goals" and the mouse to start the autonomous navigation.
 
